@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+# BCSPro Employers Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application built with TypeScript and Vite. It replicates the BCSPro Employers Dashboard.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The main application entry point is [`src/App.tsx`](src/App.tsx). The Employers Dashboard is implemented in [`src/modules/Dashboard/Dashboard.tsx`](src/modules/Dashboard/Dashboard.tsx).
 
-## Expanding the ESLint configuration
+Components used in the dashboard can be found in the [`src/components/`](src/components/) directory. Notable components include:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [`Header`](src/components/Header.tsx): The application header with navigation links.
+- [`CreateNote`](src/components/CreateNote.tsx): A component for creating notes with a character limit.
+- [`EmployerDetailsCard`](src/modules/Dashboard/Dashboard.tsx): A component displaying details about an employer.
 
-- Configure the top-level `parserOptions` property like this:
+## Running the Project
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To run the project, first install the dependencies:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```sh
+npm install
