@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 interface CalendarProps {
   appointments: Date[];
 }
@@ -8,21 +10,7 @@ export const Calendar = ({ appointments }: CalendarProps) => {
   const year = date.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const days = [];
   for (let i = 1; i <= daysInMonth; i++) {
@@ -34,31 +22,30 @@ export const Calendar = ({ appointments }: CalendarProps) => {
   );
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">Calendar</h2>
-        <div className="text-gray-500 dark:text-gray-400">
-          {monthNames[month]} {year}
-        </div>
-      </div>
-      <div className="grid grid-cols-7 gap-2 text-center">
+    <div className="bg-white dark:bg-gray-900 w-full p-3">
+      <div className="grid grid-cols-7 gap-2 text-center w-full">
         {daysOfWeek.map((day) => (
-          <div key={day} className="text-gray-500 dark:text-gray-400">
+          <div key={day} className="text-gray-500 dark:text-gray-400 w-full">
             {day}
           </div>
         ))}
-        {days.map((day) => (
-          <div
-            key={day}
-            className={
-              appointmentDays.includes(day)
-                ? "bg-red-500 dark:bg-red-800 rounded-md py-2"
-                : "bg-gray-100 dark:bg-gray-800 rounded-md py-2"
-            }
-          >
-            {day}
-          </div>
-        ))}
+        {days.map((day) => {
+          const today = Number(format(new Date(), "d"));
+          return (
+            <div
+              key={day}
+              className={
+                day === today
+                  ? "bg-[#F4F4F5] rounded-full  p-2 text-sm w-full"
+                  : appointmentDays.includes(day)
+                  ? "bg-[#FFF3CD] rounded-full p-2 text-secondary font-bold text-sm w-full"
+                  : "bg-gray-100 dark:bg-gray-800 rounded-full p-2 text-sm"
+              }
+            >
+              {day}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

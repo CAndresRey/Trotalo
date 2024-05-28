@@ -18,11 +18,12 @@ const CreateNote = () => {
       </label>
       <div className="mt-1">
         <textarea
+          
           id="employerNotes"
           name="employerNotes"
           rows={5}
           onChange={(e) => setText(e.target.value)}
-          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-[#6C757D] rounded-md"
+          className="shadow-sm mt-1 block w-full sm:text-sm border border-[#6C757D] opacity-90 rounded-md active:border-0"
           placeholder="Enter employer notes here."
           maxLength={500}
         ></textarea>

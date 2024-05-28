@@ -87,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
         </aside>
         <section className="pt-16">
-          <div className="container px-6 flex flex-col mx-auto mt-10 space-y-8">
+          <div className="container">
             {children}
           </div>
           <div className="bottom-0 left-0 ">

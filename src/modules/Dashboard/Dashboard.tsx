@@ -1,5 +1,6 @@
 import AssesmentLogo from "../../components/AssesmentLogo";
 import CalendarLogo from "../../components/CalendarLogo";
+import CalendarSection from "../../components/CalendarSection";
 import CardOptions from "../../components/CardOptions";
 import EmployerDetailsCard from "../../components/EmployerDetailCard";
 import GeneralEmployerNotes from "../../components/GeneralEmployerNotes";
@@ -7,21 +8,24 @@ import PlanningLogo from "../../components/PlanningLogo";
 
 const Dashboard = () => {
   return (
-    <>
+    <article className="flex flex-col p-6 space-y-8 items-stretch h-full">
       <h3 className="text-3xl font-medium">Acme Brick Dashboard</h3>
-      <div id="row1" className="flex">
-        <EmployerDetailsCard
-          employer={{
-            latestActivity: "BCSPro Analysis Report Downloaded",
-            name: "Acme Brick",
-            ein: " 12-3456789",
-            planYearStart: "01/01/2023",
-            primaryContact: "Grace Adler",
-            emails: ["gadler@acmebrick.com, hadams@acme...,"],
-          }}
-        />
-      </div>
-      <div id="row2" className="flex justify-between gap-6">
+      <section id="row1" className="flex w-full h-full gap-8">
+        <div >
+          <EmployerDetailsCard
+            employer={{
+              latestActivity: "BCSPro Analysis Report Downloaded",
+              name: "Acme Brick",
+              ein: " 12-3456789",
+              planYearStart: "01/01/2023",
+              primaryContact: "Grace Adler",
+              emails: ["gadler@acmebrick.com, hadams@acme...,"],
+            }}
+          />
+        </div>
+        <CalendarSection />
+      </section>
+      <section id="row2" className="flex justify-between gap-6">
         <CardOptions
           title="Assessment"
           content="Quickly identify the gaps in compliance for this employer's group health and welfare program."
@@ -40,8 +44,8 @@ const Dashboard = () => {
           buttonText="View Calendar"
           logo={<CalendarLogo className="mx-auto" />}
         />
-      </div>
-      <div id="row3">
+      </section>
+      <section id="row3">
         <GeneralEmployerNotes
           notes={[
             {
@@ -67,8 +71,8 @@ const Dashboard = () => {
             },
           ]}
         />
-      </div>
-    </>
+      </section>
+    </article>
   );
 };
 

@@ -19,8 +19,9 @@ const EmployerDetailsCard: React.FC<EmployerDetailsCardProps> = ({
   employer,
 }) => {
   return (
-    <Card className="min-w-fit">
-      <CardHeader className="bg-[#f4f4f5] w-full justify-between border border-borders">
+
+    <Card className="w-full h-full">
+      <CardHeader className="bg-[#f4f4f5] w-full min-w-[456px] justify-between border border-borders">
         <CardTitle className="text-2xl font-bold ">Employer Details</CardTitle>
         <a href="#" className="text-secondary font-bold text-sm">
           Edit
