@@ -12,8 +12,6 @@
         grid-template-columns: 16rem 1fr;
     }
 
-
-
     .scroll-bar::-webkit-scrollbar-thumb {
         background: #888;
         border-radius: 4px;
@@ -27,6 +25,8 @@
     .scroll-bar {
         position: relative;
         left: 4px;
+        border-radius: 4px;
+        box-shadow: inset 1px 0px 0px #E8E8E8, inset -1px 0px 0px #F0F0F0;
     }
 
     .scroll-bar::-webkit-scrollbar {

@@ -4,9 +4,7 @@ import { Brand } from "./Brand";
 import NavbarLink from "./NavbarLink";
 
 const Header = () => {
-  const [active, setActive] = useState("");
-
-
+  const [active, setActive] = useState("home");
 
   return (
     <header

@@ -25,7 +25,10 @@ export const Calendar = ({ appointments }: CalendarProps) => {
     <div className="bg-white dark:bg-gray-900 w-full p-3">
       <div className="grid grid-cols-7 gap-2 text-center w-full">
         {daysOfWeek.map((day) => (
-          <div key={day} className="text-gray-500 dark:text-gray-400 w-full">
+          <div
+            key={day}
+            className="text-gray-500 dark:text-gray-400 w-full  text-sm "
+          >
             {day}
           </div>
         ))}
@@ -36,10 +39,10 @@ export const Calendar = ({ appointments }: CalendarProps) => {
               key={day}
               className={
                 day === today
-                  ? "bg-[#F4F4F5] rounded-full  p-2 text-sm w-full"
+                  ? "bg-[#F4F4F5] rounded-full  p-2 text-sm w-full text-center"
                   : appointmentDays.includes(day)
-                  ? "bg-[#FFF3CD] rounded-full p-2 text-secondary font-bold text-sm w-full"
-                  : "bg-gray-100 dark:bg-gray-800 rounded-full p-2 text-sm"
+                  ? "bg-[#FFF3CD] rounded-full p-2 text-secondary text-center font-bold text-sm w-full"
+                  : "bg-gray-100 dark:bg-gray-800 rounded-full p-2 text-sm text-center"
               }
             >
               {day}
