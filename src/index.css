@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+    .bg-mid-grey {
+        background-color: var(--color-mid-grey);
+    }
+
+    .bg-light-grey {
+        background-color: var(--color-light-grey);
+    }
+
+    .grid-rows-layout {
+        grid-template-rows: auto 1fr;
+    }
+
+    .grid-cols-layout {
+        grid-template-columns: 16rem 1fr;
+    }
+
+    .scroll-bar::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .scroll-bar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+        height: 25px;
+    }
+    
+    .scroll-bar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    
+    .scroll-bar {
+        position: relative;
+        left: 4px;
+    }
+}
