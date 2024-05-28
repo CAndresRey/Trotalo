@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AssesmentLogo from "../../components/AssesmentLogo";
 import CalendarLogo from "../../components/CalendarLogo";
 import CalendarSection from "../../components/CalendarSection";
@@ -5,13 +6,15 @@ import CardOptions from "../../components/CardOptions";
 import EmployerDetailsCard from "../../components/EmployerDetailCard";
 import GeneralEmployerNotes from "../../components/GeneralEmployerNotes";
 import PlanningLogo from "../../components/PlanningLogo";
+import Drawer from "../../components/Drawer";
 
 const Dashboard = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <article className="flex flex-col p-6 space-y-8 items-stretch h-full">
       <h3 className="text-3xl font-medium">Acme Brick Dashboard</h3>
       <section id="row1" className="flex w-full h-full gap-8">
-        <div >
+        <div>
           <EmployerDetailsCard
             employer={{
               latestActivity: "BCSPro Analysis Report Downloaded",
@@ -21,9 +24,29 @@ const Dashboard = () => {
               primaryContact: "Grace Adler",
               emails: ["gadler@acmebrick.com, hadams@acme...,"],
             }}
+            openDrawer={setOpenDrawer}
           />
         </div>
-        <CalendarSection />
+        <CalendarSection
+          openDrawer={setOpenDrawer}
+          dates={[
+            {
+              name: "Form 8508 Request",
+              id: 1,
+              date: new Date("2022-12-01"),
+            },
+            {
+              name: "Form 5500 Due",
+              id: 2,
+              date: new Date("2022-12-01"),
+            },
+            {
+              name: "Form 8955-SSA Due",
+              id: 3,
+              date: new Date("2022-12-01"),
+            },
+          ]}
+        />
       </section>
       <section id="row2" className="flex justify-between gap-6">
         <CardOptions
@@ -72,6 +95,12 @@ const Dashboard = () => {
           ]}
         />
       </section>
+      {openDrawer && (
+        <Drawer
+          isOpen={openDrawer}
+          onRequestClose={() => setOpenDrawer(false)}
+        />
+      )}
     </article>
   );
 };
